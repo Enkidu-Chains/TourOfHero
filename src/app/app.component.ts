@@ -5,6 +5,12 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'TourOfHeroes';
+export class AppComponent
+{
+  private _title: string = 'TourOfHeroes';
+
+  public get Title(): string
+  {
+    return this._title;
+  }
 }
