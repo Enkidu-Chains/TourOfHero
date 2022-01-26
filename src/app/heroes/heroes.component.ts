@@ -8,31 +8,15 @@ import { HeroService } from "../hero.service";
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  private _heroes?: Hero[];
+  public heroes: Hero[] = [];
 
-  private _selectedHero?: Hero;
+  public selectedHero?: Hero;
 
   constructor(private heroService: HeroService) {
   }
 
-  public get Heroes(): Hero[] {
-    return [...this._heroes ?? []];
-  }
-
-  private set Heroes(heroes: Hero[]) {
-    this._heroes = heroes;
-  }
-
-  public get SelectedHero(): Hero | undefined {
-    return this._selectedHero;
-  }
-
-  private set SelectedHero(hero: Hero | undefined) {
-    this._selectedHero = hero;
-  }
-
-  public OnSelect(hero: Hero): void {
-    this.SelectedHero = hero;
+  public onSelect(hero: Hero): void {
+    this.selectedHero = hero;
   }
 
   public ngOnInit(): void {
@@ -40,7 +24,7 @@ export class HeroesComponent implements OnInit {
   }
 
   private InitHeroes(): void {
-    this.heroService.GetHeroes()
-        .subscribe(heroes => this.Heroes = heroes);
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
   }
 }

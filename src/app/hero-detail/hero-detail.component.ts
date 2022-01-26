@@ -6,23 +6,11 @@ import { Hero } from '../hero';
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.scss']
 })
-export class HeroDetailComponent implements OnInit
-{
-  private _hero?: Hero;
-
-  constructor()
-  {
-  }
-
-  public get Hero(): Hero | undefined
-  {
-    return this._hero;
-  }
-
+export class HeroDetailComponent implements OnInit {
   @Input()
-  public set Hero(hero: Hero | undefined)
-  {
-    this._hero = hero;
+  public hero?: Hero;
+
+  constructor() {
   }
 
   ngOnInit(): void {

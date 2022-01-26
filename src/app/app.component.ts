@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent
 {
-  private _title: string = 'TourOfHeroes';
+  public title: string = '';
 
-  public get Title(): string
-  {
-    return this._title;
+  constructor() {
+    this.title = 'TourOfHeroes'
   }
 }
