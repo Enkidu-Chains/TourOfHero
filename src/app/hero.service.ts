@@ -8,6 +8,8 @@ import { HEROES } from "./mock-heroes";
   providedIn: 'root'
 })
 export class HeroService {
+  constructor(private _messageService: MessageService) {
+  }
 
   public getHeroes(): Observable<Hero[]> {
     const heroes: Observable<Hero[]> = of(HEROES);
@@ -17,6 +19,11 @@ export class HeroService {
     return heroes;
   }
 
-  constructor(private _messageService: MessageService) {
+  public getHero(id: number): Observable<Hero> {
+    const hero = HEROES.find(h => h.id === id)!;
+
+    this._messageService.add(`${HeroService.name}: fetched Hero id=${id}`);
+
+    return of(hero);
   }
 }

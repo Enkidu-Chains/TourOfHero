@@ -7,30 +7,31 @@
   li {
     cursor: pointer;
     position: relative;
-    background-color: #eee;
-    left: 0;
+
+    &:hover {
+      left: .1em;
+    }
+  }
+
+  a {
+    color: #333;
+    text-decoration: none;
+    background-color: #EEE;
     margin: .5em;
     padding: .3em 0;
     height: 1.6em;
     border-radius: 4px;
+    display: block;
+    width: 100%;
 
     &:hover {
       color: #2c3a41;
       background-color: #e6e6e6;
-      left: .1em;
     }
 
-    &.selected {
-      background-color: black;
-      color: white;
-
-      &:hover {
-        background-color: #505050;
-      }
-
-      &:active {
-        background-color: black;
-      }
+    &:active {
+      background-color: #525252;
+      color: #fafafa;
     }
   }
 
@@ -39,17 +40,15 @@
     font-size: small;
     color: white;
     padding: 0.8em 0.7em 0 0.7em;
-    background-color:#405061;
+    background-color: #405061;
     line-height: 1em;
     position: relative;
     left: -1px;
     top: -4px;
     height: 1.8em;
+    min-width: 16px;
+    text-align: right;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-}
-
-input {
-  padding: .5em;
 }
